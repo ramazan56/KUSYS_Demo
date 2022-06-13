@@ -1,0 +1,55 @@
+﻿@using KUSYS_Demo.Domain;
+@model List<Student>
+
+<div>
+    <div style="float:right;">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#myModalAdd" class="btn btn-primary">Add</button>
+    </div>
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>
+                    FirstName
+                </th>
+                <th>
+                    LastName
+                </th>
+                <th>
+                    BirthDate
+                </th>
+                <th>
+                    Course
+                </th>
+                <th>
+                    Info
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.BirthDate</td>
+                    <td>@item.Course.CourseName</td>
+                    <td>
+                        <i data-bs-toggle="modal" onclick="modaldelete('@item.StudentId','@item.FirstName','@item.LastName')" data-bs-target="#myModalDelete" class="fa fa-trash"></i>
+                        <i data-bs-toggle="modal" onclick="modaledit('@item.FirstName','@item.LastName','@item.BirthDate','@item.StudentId')" data-bs-target="#myModalUpdate" class="fas fa-user-edit"></i>
+                        <i data-bs-toggle="modal" onclick="modaldetail('@item.FirstName','@item.LastName','@item.BirthDate','@item.Course.CourseName')" data-bs-target="#myModalDetails" class="fa fa-address-card"></i>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<!-- The Modal -->
+<partial name="Modals/_studentUpdateModal" />
+<partial name="Modals/_studentAddModal" />
+<partial name="Modals/_studentDeleteModal" />
+<partial name="Modals/_studentDetailsModal" />
+<script src="~/js/Student.js">
+</script>

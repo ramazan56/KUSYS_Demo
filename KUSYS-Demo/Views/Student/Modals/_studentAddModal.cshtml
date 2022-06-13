@@ -1,0 +1,43 @@
+﻿@using KUSYS_Demo.Domain;
+@model List<Student>
+
+<div class="modal" id="myModalAdd">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Student Add</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <form id="dataaddForm">
+
+                <div class="modal-body">
+                    <span>First Name:</span> <input class="w3-input" id="firstName" name="firstName" type="text" /><br />
+                    <span>Last Name:</span><input class="w3-input" id="lastName" name="lastName" type="text" /><br />
+                    <span>BirthDate:</span><input class="w3-input" id="birthDate" name="birthDate" type="text" /><br />
+                    <span>Course Name:</span><select name="courseId">
+                     @foreach (var item in Model)
+                    {
+                     <option value="@item.CourseId">
+                         @item.Course.CourseName
+                     </option>   
+                    }
+                     </select><br />
+                    <button onclick="addStudent()" type="button" class="btn btn-primary">
+                        Add
+                    </button>
+                </div>
+            </form>
+
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

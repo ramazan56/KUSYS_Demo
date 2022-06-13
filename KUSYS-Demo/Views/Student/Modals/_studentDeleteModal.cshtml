@@ -1,0 +1,33 @@
+﻿<div class="modal" id="myModalDelete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Student Delete</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <form id="dataupdateForm">
+
+                <div class="modal-body">
+                     <span id="studentinfo"></span><br />
+                    <button onclick="deleteStudent()" type="button" class="btn btn-primary">
+                        Yes
+                    </button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+
+                    <input hidden id="stundentIdDelete" />
+                </div>
+            </form>
+
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+               
+            </div>
+
+        </div>
+    </div>
+</div>
